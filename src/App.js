@@ -15,6 +15,19 @@ function App() {
     {title: 'Semangka', count: 1}
   ])
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const addedTodos = [...todos,  {
+      title: value,
+      count: 1
+    }]
+
+    setTodos(addedTodos)
+  }
+  console.log(value)
+  console.log(todos)
+  
   const handleAdditionCount = (index) => {
     const newTodos = [...todos]
 
@@ -30,6 +43,7 @@ function App() {
 
     setTodos(newTodos)
   }
+
   return (
     <> 
     <nav className="nav">
@@ -38,7 +52,7 @@ function App() {
     </nav>
 
     <section className="container">
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <input
         onChange={((e) => {setValue(e.target.value)})}
         value={value}
