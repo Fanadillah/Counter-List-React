@@ -18,16 +18,20 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if(!value) {
+      alert('No blank list!')
+      return
+    }
+
     const addedTodos = [...todos,  {
       title: value,
       count: 1
     }]
 
     setTodos(addedTodos)
+    setValue('')
   }
-  console.log(value)
-  console.log(todos)
-  
+
   const handleAdditionCount = (index) => {
     const newTodos = [...todos]
 
@@ -39,7 +43,15 @@ function App() {
   const handleSubstractionCount = (index) => {
     const newTodos = [...todos]
     
-    newTodos[index].count = newTodos[index].count - 1
+    if (newTodos[index].count > 0){
+      // selama jumlah count masih diatas 0
+      // bisa lakukan pengurangan
+      newTodos[index].count = newTodos[index].count - 1
+    } else {
+      // kalo udh 0 dan masib di kurang maka akan di apus
+      //  splice : index keberapa dan berapa data yang mau di apus
+      newTodos.splice(index, 1)
+    }
 
     setTodos(newTodos)
   }
