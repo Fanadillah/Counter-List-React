@@ -56,6 +56,13 @@ function App() {
     setTodos(newTodos)
   }
 
+  const getTotalCount = () => {
+    const totalCounts = todos.reduce((total, num) => {
+      return total + num.count
+    }, 0)
+    return totalCounts
+  }
+
   return (
     <> 
     <nav className="nav">
@@ -77,14 +84,14 @@ function App() {
 
       <div className="info">
         <div className="info-total">
-            <p>Total List</p>
+            <p>{`Total List: ${todos.length}`}</p>
         </div>
 
         <div className="info-total">
-            <p>Total Counts</p>
+            <p>{`Total Counts: ${getTotalCount()}`}</p>
         </div>
 
-        <button className="delete-all-button">
+        <button onClick={() => setTodos([])} className="delete-all-button">
           Delete All List
         </button>
       </div>
