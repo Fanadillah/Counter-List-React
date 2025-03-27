@@ -84,28 +84,7 @@ function App() {
     />
 
       {todos.length > 0 ? (
-        <div className="todos">
-          {todos.map((todo, index, arr) => {
-            return (
-              <div key={index} className={`todo ${!(arr.length === index +1) && 'todo-divider'}`}>
-                
-                {todo.title}
 
-                <div className="todo-icon-wrapper">
-                  <div className="todo-count">{todo.count}</div>
-
-                  <button className="todo-action-button">
-                    <img onClick={() => handleSubstractionCount(index)} src={minusIcon} alt="minus icon"/>
-                    </button>
-
-                    <button onClick={() => handleAdditionCount(index)} className="todo-action-button">
-                    <img src={plusIcon} alt="plus icon"/>
-                    </button>
-                </div>
-              </div>
-            )
-          })}
-        </div>
       ): (
         <div>Kosong</div>
       )}
