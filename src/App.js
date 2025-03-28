@@ -4,9 +4,8 @@ import Navbar from './components/Navbar'
 import Container from "./components/Container";
 import SearchInput from "./components/SearchInput";
 import Info from "./components/Info";
+import Todos from "./components/Todos";
 
-import plusIcon from './assets/plus-icon.svg'
-import minusIcon from './assets/minus-icon.svg'
 
 import './App.css'
 
@@ -84,7 +83,11 @@ function App() {
     />
 
       {todos.length > 0 ? (
-
+        <Todos
+        todos={todos}
+        onSubstraction={(index) => handleSubstractionCount(index)}
+        onAddition={(index) => handleAdditionCount(index)}
+        />
       ): (
         <div>Kosong</div>
       )}
