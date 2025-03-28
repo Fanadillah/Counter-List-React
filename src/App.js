@@ -4,6 +4,7 @@ import Container from "./components/Container";
 import SearchInput from "./components/SearchInput";
 import Info from "./components/Info";
 import Todos from "./components/Todos";
+import Empty from "./components/Empty";
 
 
 
@@ -88,7 +89,7 @@ function App() {
         onAddition={(index) => handleAdditionCount(index)}
         />
       ): (
-        <div>Kosong</div>
+        <Empty/>
       )}
     </Container> 
 
