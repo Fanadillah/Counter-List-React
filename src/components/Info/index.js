@@ -1,17 +1,19 @@
 import styles from './Info.module.css';
 import PropTypes from 'prop-types';
-const Info = (props) => {
+
+// props destructuring
+const Info = ({ todosLength, totalCount, onDelete }) => {
     return (
         <div className={styles.info}>
         <div className={styles.infoTotal}>
-            <p>{`Total List: ${props.todosLength}`}</p>
+            <p>{`Total List: ${todosLength}`}</p>
         </div>
 
         <div className={styles.infoTotal}>
-            <p>{`Total Counts: ${props.totalCount}`}</p>
+            <p>{`Total Counts: ${totalCount}`}</p>
         </div>
 
-        <button onClick={props.onDelete} className={styles.deleteAllButton}>
+        <button onClick={onDelete} className={styles.deleteAllButton}>
           Delete All List
         </button>
       </div>
