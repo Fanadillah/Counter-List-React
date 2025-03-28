@@ -7,7 +7,7 @@ import Info from "./components/Info";
 import Todos from "./components/Todos";
 
 
-import './App.css'
+
 
 function App() {
   const [value, setValue] = useState('');
